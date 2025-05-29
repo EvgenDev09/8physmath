@@ -867,7 +867,11 @@ function countPoints(playerCards, pack = "classic", other = [0]) {
     let points = 0;
     let curcards = {};
     curcards["closed"] = 0;
-    Object.keys(cards[pack].cards).forEach(key => {
+    let neededCards = cards[pack].cards;
+    if ("extended" in cards[pack]) {
+        neededCards = cards[pack].extended;
+    }
+    Object.keys(neededCards).forEach(key => {
         curcards[key] = 0;
     });
     playerCards.forEach(key => {
@@ -910,7 +914,7 @@ function countPoints(playerCards, pack = "classic", other = [0]) {
             if (closed > 0)
                 points += curcards["leonidia"];
                 card_types += 1;
-            Object.keys(cards[pack].cards).forEach(key => {
+            Object.keys(neededCards).forEach(key => {
                 if (curcards[key] > 0)
                     points += curcards["leonidia"];
                     card_types += 1;
