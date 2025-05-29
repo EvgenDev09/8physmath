@@ -1,7 +1,9 @@
 body {
-    font-family: "Neucha", Arial, Helvetica, sans-serif;
+    font-family: "Noto Color Emoji", "Neucha", Arial, Helvetica, sans-serif;
+    font-variant-emoji: unicode;
     margin: 0;
     color: white;
+    font-size: 24px;
 }
 
 h1, p {
@@ -72,6 +74,7 @@ a {
 #main {
     margin-top: 80px;
     padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     justify-content: center;
 }
@@ -102,7 +105,7 @@ a {
 #main-buttons {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -120,12 +123,21 @@ a {
     height: min-content;
 }
 
+.main-button-active {
+    background-color: #e0b020;
+}
+
 .main-button img {
     height: 45px;
 }
 
 .main-button p {
     font-size: 28px;
+}
+
+.main-button * {
+    pointer-events: none;
+    user-select: none;
 }
 
 #unfinished {
@@ -140,13 +152,11 @@ a {
     background-color: #202020;
 }
 
-@media (min-width: 640px) {
-    #main-buttons {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 640px) {
+    #main-buttons {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
     #back-button p {
         display: none;
     }

@@ -1,0 +1,78 @@
+#pack-name {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#count-section {
+    display: grid;
+    grid-template-columns: auto repeat(4, 1fr);
+}
+
+#count-section div:nth-child(1) {
+    grid-row: 1/3;
+}
+
+#count-players {
+    grid-column: 2/6;
+}
+
+#count-section div {
+    background-color: rgba(32, 32, 32, 0.6);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+#count-section div:nth-child(2n) {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#count-section .count-header {
+    background-color: rgba(48, 48, 48, 0.6);
+}
+
+#count-section .count-header:nth-child(2n) {
+    background-color: rgba(64, 64, 64, 0.6);
+}
+
+#count-section .count-extended {
+    background-color: rgba(128, 105, 10, 0.6);
+}
+
+#count-section .count-extended:nth-child(2n) {
+    background-color: rgba(100, 85, 2, 0.6);
+}
+
+#count-section .count-header.count-extended {
+    background-color: rgba(160, 130, 20, 0.6);
+}
+
+#count-section .count-header.count-extended:nth-child(2n) {
+    background-color: rgba(192, 150, 60, 0.6);
+}
+
+#count-section .count-corner {
+    background-color: rgba(100, 100, 100, 0.6);
+}
+
+#count-section .count-corner:nth-child(2n) {
+    background-color: rgba(128, 128, 128, 0.6);
+}
+
+#count-section div:nth-child(1) {
+    border-top-left-radius: 20px;
+}
+
+#count-section div:nth-child(2) {
+    border-top-right-radius: 20px;
+}
+
+#count-section .count-header:nth-last-child(1 of .count-header) {
+    border-bottom-left-radius: 20px;
+}
+
+#count-section div:last-child {
+    border-bottom-right-radius: 20px;
+}

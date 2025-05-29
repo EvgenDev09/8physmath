@@ -1,0 +1,51 @@
+#pack-name {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#effects-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.effect {
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+}
+
+.effect-symbol {
+    font-size: 60px;
+    width: 80px;
+    text-align: center;
+}
+
+.effect-text {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.effect-text p:nth-child(2) {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@media (max-width: 1050px) {
+    #effects-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    #effects-section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
