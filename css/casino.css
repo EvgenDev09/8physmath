@@ -1,0 +1,104 @@
+#casino-section {
+    --size-change: 1;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 50vh;
+    aspect-ratio: 1/1;
+    border-radius: calc(var(--size-change)*30px);
+    padding: calc(var(--size-change)*15px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: calc(var(--size-change)*10px);
+}
+
+@media (max-aspect-ratio: 2/3) {
+    #casino-section {
+        height: auto;
+        width: 100%;
+    }
+}
+
+#casino-win {
+    border-radius: calc(var(--size-change)*20px);
+    padding: calc(var(--size-change)*10px);
+    font-size: calc(var(--size-change)*50px);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: gold;
+    text-align: center;
+    font-family: "Doto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#casino-score {
+    border-radius: calc(var(--size-change)*20px);
+    padding: calc(var(--size-change)*10px);
+    font-size: calc(var(--size-change)*50px);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    font-family: "Doto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#casino-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--size-change)*10px);
+    flex-grow: 1;
+}
+
+@property --target-slot {
+    syntax: '<number>'; /* <- defined as type number for the transition to work */
+    initial-value: 0;
+    inherits: false;
+}
+
+@property --line-height {
+    syntax: '<length>'; /* <- defined as type number for the transition to work */
+    initial-value: 0;
+    inherits: false;
+}
+
+.casino-slot {
+    overflow: hidden;
+    border-radius: calc(var(--size-change)*30px);
+    background-color: rgba(192, 192, 192, 0.9);
+    height: 100%;
+    width: 100%;
+    position: relative;
+    --target-slot: 0;
+    --cur-slot: calc(mod(calc(var(--target-slot) + 6), 12) - 6);
+}
+
+.casino-slot div {
+    position: absolute;
+    font-size: calc(var(--size-change)*110px);
+    --line-height: calc(var(--size-change)*300px);
+    line-height: var(--line-height);
+    text-align: center;
+    width: 100%;
+    color: black;
+    transform: translateY(-50%) translateY(calc(0px - var(--line-height)*var(--cur-slot)));
+}
+
+.casino-slot:nth-child(1) {
+    transition: --target-slot 5s cubic-bezier(0.25, 0.25, 0.0, 1.0);
+}
+
+.casino-slot:nth-child(2) {
+    transition: --target-slot 7s cubic-bezier(0.25, 0.25, 0.0, 1.0);
+}
+
+.casino-slot:nth-child(3) {
+    transition: --target-slot 9s cubic-bezier(0.25, 0.25, 0.0, 1.0);
+}
+
+.progress-button {
+    background-color: #202020;
+}
