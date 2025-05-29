@@ -25,6 +25,13 @@
     font-size: 32px;
 }
 
+@media (max-width: 640px) {
+    #count-section div {
+        padding: 5px;
+        font-size: 22px;
+    }
+}
+
 #count-section div:nth-child(2n) {
     background-color: rgba(0, 0, 0, 0.6);
 }
