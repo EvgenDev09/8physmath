@@ -127,12 +127,12 @@ let cards = {
       alexandr: {
         symbol: "😮",
         name: "Алехандр",
-        description: "Даёт 4 очка; Хотя бы 6 различных видов карт (в том числе этот) = -3; Женя/Шевчик Максим = +1"
+        description: "Даёт 4 очка; Хотя бы 6 различных видов карт (в том числе этот) = -3; Женя/Шевчик Максим/Сергей = +1"
       },
       ultramax: {
         symbol: "🎉",
         name: "Шевчик Максим",
-        description: "Даёт 2 очка при отсутствии Амогусов; Непересекающаяся пара 🤫 и 😮 = +4; Аким = +1"
+        description: "Даёт 2 очка при отсутствии Амогусов; Хотя бы 6 различных видов карт (в том числе этот) = +2; Непересекающаяся пара 🤫 и 😮 = +4; Аким = +1"
       }
     },
     number: [
@@ -926,11 +926,13 @@ function countPoints(playerCards, pack = "classic", other = [0]) {
             if (curcards["veeeep"] == 1)
                 points += 2;
             points += curcards["detector"] * (4 + other[0]);
-            points += curcards["alexandr"] * (4 + curcards["evgen"] + curcards["ultramax"]);
+            points += curcards["alexandr"] * (4 + curcards["evgen"] + curcards["ultramax"] + curcards["sergay"]);
             if (card_types >= 6)
                 points += curcards["alexandr"] * (-3);
             points += curcards["ultramax"] * (Math.min(curcards["evgen"], curcards["alexandr"])*4 + curcards["akim"]);
             if (curcards["amogus"] <= 0)
+                points += curcards["ultramax"] * 2;
+            if (card_types >= 6)
                 points += curcards["ultramax"] * 2;
             break;
     }
